@@ -1,4 +1,15 @@
-<p>
-  my-lcr works!
-</p>
+<div class="players-view" *ngIf="game">
+  <div *ngFor="let p of game.players" class="player">
+    <span [ngStyle]="p.index === this.playerTurn - 1 ? {color: '#9e9e9e'} : ''">
+      <h6>Player {{p.index + 1}}:</h6>
+      Chip Count: {{p.chipCount}}
+    </span>
+  </div>
+</div>
+<div class="button-container">
+  <button class="btn btn-info" (click)="takeTurn()">Roll Dice</button>
+  <div *ngIf="lastRoll" class="roll-status">
+  <h6>Player {{lastRoll.player + 1}} Rolled: <span *ngFor="let r of lastRoll.roll" class="rolls">{{DiceValues[r]}}</span></h6>
+  </div>
+</div>
 

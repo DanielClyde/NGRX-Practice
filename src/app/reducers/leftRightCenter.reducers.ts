@@ -12,6 +12,7 @@ const LCRReducer = createReducer(LCRInitialState,
     };
     for (let i = 0; i < action.playerCount; i++) {
       newState.players[i] = new LCRPageActions.Player();
+      newState.players[i].index = i;
       if (action.chipCount) {
         newState.players[i].chipCount = action.chipCount;
       }

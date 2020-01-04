@@ -8,6 +8,7 @@ export const DEFAULT_CHIP_COUNT = 4;
 
 export class Player {
   chipCount = DEFAULT_CHIP_COUNT;
+  index: number;
 }
 
 
