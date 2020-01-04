@@ -1,21 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, RoutingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import {counterReducer} from './counter.reducers';
-import { MyCounterComponent } from './my-counter/my-counter.component';
+import * as fromCounter from './reducers/counter.reducers';
+import * as fromScoreboard from './reducers/scoreboard.reducers';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonsModule, TabsModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyCounterComponent
+    RoutingComponents,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({count: counterReducer})
+    ButtonsModule,
+    TabsModule,
+    StoreModule.forRoot({count: fromCounter.counterReducer, game: fromScoreboard.reducer}),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

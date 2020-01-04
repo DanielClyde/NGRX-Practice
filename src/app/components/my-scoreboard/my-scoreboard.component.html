@@ -1,0 +1,11 @@
+<div class="score-container">
+  <label>HOME:</label>
+  {{(game$ | async).home}}
+  <label>AWAY:</label>
+  {{(game$ | async).away}}
+</div>
+<div class="button-container">
+<button (click)="homeScore()" class="btn btn-info">Home Score</button>
+<button (click)="awayScore()" class="btn btn-info">Away Score</button>
+<button (click)="reset()" class="btn btn-secondary">Reset</button>
+</div>
